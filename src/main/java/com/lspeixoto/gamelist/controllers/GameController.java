@@ -1,5 +1,6 @@
 package com.lspeixoto.gamelist.controllers;
 
+import com.lspeixoto.gamelist.dto.GameDTO;
 import com.lspeixoto.gamelist.dto.GameMinDTO;
 import com.lspeixoto.gamelist.entities.Game;
 import com.lspeixoto.gamelist.services.GameService;
@@ -26,9 +27,11 @@ public class GameController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Game> findById(@PathVariable Long id) {
-        Game game = service.findById(id);
+    public ResponseEntity<GameDTO> findById(@PathVariable Long id) {
+        GameDTO game = service.findById(id);
 
         return ResponseEntity.ok().body(game);
     }
+
+
 }
